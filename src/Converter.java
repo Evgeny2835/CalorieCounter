@@ -1,12 +1,10 @@
 public class Converter {
 
-    void convertStepsToKm(int totalStepsPerMonth) {
-        double km = totalStepsPerMonth * 0.00075;
-        System.out.println("Пройденная дистанция (в км): " + km);
+    double convertStepsToKm(int totalStepsPerMonth) {
+        return totalStepsPerMonth * 0.00075;
     }
 
-    void convertStepsToKcal(int totalStepsPerMonth) {
-        int kcal = (int) (totalStepsPerMonth * 0.05);
-        System.out.println("Количество сожженных килокалорий: " + kcal);
+    int convertStepsToKcal(int totalStepsPerMonth) {
+        return (int) (totalStepsPerMonth * 0.05);
     }
 }

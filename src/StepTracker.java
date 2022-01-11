@@ -9,20 +9,6 @@ public class StepTracker {
             monthToData.put(i, new MonthData());
         }
     }
-    static class MonthData {
-        Integer[] daysOfMonth = new Integer[30];
-        MonthData() {
-            for (int i = 0; i < 30; i++) {
-                daysOfMonth[i] = 0;
-            }
-        }
-
-        // метод сохранения значений в массиве (число шагов в определенный день)
-        void setTheNumberOfSteps(int dayOfTrackingSteps, int numberOfStepsPerDay) {
-            daysOfMonth[dayOfTrackingSteps - 1] = numberOfStepsPerDay;
-            System.out.println("Данные сохранены");
-        }
-    }
 
     // метод изменения целевого количества шагов
     void setTargetNumberOfSteps(int newTargetNumberOfSteps) {
@@ -70,10 +56,25 @@ public class StepTracker {
         System.out.println("Общее количество шагов: " + totalStepsPerMonth);
         System.out.println("Максимальное количество пройденных шагов: " + maxNumberOfStepsPerDay);
         System.out.println("Среднее количество шагов: " + totalStepsPerMonth / 30);
-        Converter converter = new Converter();            // для вызова методов конвертации
-        converter.convertStepsToKm(totalStepsPerMonth);
-        converter.convertStepsToKcal(totalStepsPerMonth);
+        Converter converter = new Converter();
+        System.out.println("Пройденная дистанция (в км): " + converter.convertStepsToKm(totalStepsPerMonth));
+        System.out.println("Количество сожженных килокалорий: " + converter.convertStepsToKcal(totalStepsPerMonth));
         System.out.println("Лучшая серия (максимальное количество подряд идущих дней, в течение которых" +
-                " количество шагов за день было выше целевого): " + maxSeriesOfSteps);
+                           " количество шагов за день было выше целевого): " + maxSeriesOfSteps);
+    }
+
+    static class MonthData {
+        Integer[] daysOfMonth = new Integer[30];
+        MonthData() {
+            for (int i = 0; i < 30; i++) {
+                daysOfMonth[i] = 0;
+            }
+        }
+
+        // метод сохранения значений в массиве (число шагов в определенный день)
+        void setTheNumberOfSteps(int dayOfTrackingSteps, int numberOfStepsPerDay) {
+            daysOfMonth[dayOfTrackingSteps - 1] = numberOfStepsPerDay;
+            System.out.println("Данные сохранены");
+        }
     }
 }
