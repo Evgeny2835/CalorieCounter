@@ -20,11 +20,13 @@ public class Main {
                     System.out.println("Извините, введено некорректное значение (отрицательное)");
                     continue;
                 }
-                stepTracker.monthToData.get(monthOfTrackingSteps - 1).setTheNumberOfSteps(dayOfTrackingSteps, numberOfStepsPerDay);
+                stepTracker.monthToData
+                           .get(monthOfTrackingSteps - 1)
+                           .setTheNumberOfSteps(dayOfTrackingSteps, numberOfStepsPerDay);
             } else if (userinput == 2) {
                 System.out.println("Введите месяц (1-12)");
                 int monthOfTrackingSteps = scanner.nextInt();
-                stepTracker.monthToData.get(monthOfTrackingSteps - 1).printMonthlyStepStatistics(monthOfTrackingSteps);
+                stepTracker.printMonthlyStepStatistics(monthOfTrackingSteps);
             } else if (userinput == 3) {
                 System.out.println("Текущее целевое значение: " + stepTracker.targetNumberOfSteps);
                 System.out.println("Введите новое целевое значение");
